@@ -1,0 +1,59 @@
+    <div class="banner" [ngStyle]="{'background-image': getBackgroundImageUrl()}">
+      <div class="container">
+      <div class="breadcrum">
+        <div class="text">{{page.title}}</div>
+      </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="section internal offer-sec">
+      <div class="top-section">
+        <div class="internal-content-sec-left">
+          <div class="links">
+            <ul>
+              <li><span href="#" (click)="toTab(1)">{{'offer.my_equity_fund' | translate}}</span></li>
+              <li><span href="#" (click)="toTab(2)">{{'offer.invest_carefully' | translate}}</span></li>
+              <li><span href="#" (click)="toTab(3)">{{'offer.compensation' | translate}}</span></li>
+              <li><span href="#" (click)="toTab(4)">{{'offer.thoughtful_investment' | translate}}</span></li>
+              <li><span href="#" (click)="toTab(5)">{{'offer.faq' | translate}}</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="internal-content-sec-right">
+          <div class="blue">
+            <div class="border"><img src="assets/images/internal-border.png"></div>
+            <div class="content" [innerHTML]="this.SettingsConstant.headerContact"></div>
+          </div>
+        </div>
+      </div>
+      <div class="internal-content-sec-left" [innerHTML]="page.content_body">
+      </div>
+    </div>
+   
+ 
+  </div>
+
+  <div class="value-find voorbeelden">
+    <div class="container">
+      <div class="heading tab-4" id="tab-4" >{{'offer.thoughtful_investment' | translate}}</div>
+    <div class="box" *ngFor="let block of blocks | keyvalue">
+      <div class="text" [innerHTML]="block.value.details"></div>
+      <div class="graph"><img src="https://www.cloostermanvaluefund.nl/uploads/block/images/{{block.value.image}}"></div>
+    </div>
+  </div>
+    </div>
+
+    <div class="container">
+  <div class="section">
+       
+     <div class="internal-content-sec-right">
+       
+       <div class="content-image"><img src="https://www.cloostermanvaluefund.nl/uploads/cms/images/{{footerImage}}"></div>
+    </div>
+      <div class="internal-content-sec-left bottom" [innerHTML]="page.extra_content_body">
+        
+    </div>
+    </div>
+  
+  
+  </div>

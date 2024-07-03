@@ -1,0 +1,37 @@
+<div class="cookiesbar" *ngIf="showCookiePopUp">
+<div class="container">
+<span class="txt"> {{'common.header_policy_message' | translate }} <a href="/cookies">{{'common.header_policy_name' | translate }}</a></span>
+<span href="#" class="btn" (click)="acceptCookie()">{{'common.header_policy_accept' | translate }}</span>
+</div>
+</div>
+
+<div class="container">
+
+<div class="pop-up" *ngIf="showAFM">
+  <p>{{'common.header_pay_attention' | translate }}</p>
+  <div class="icon"><img src="assets/images/popup-icon.jpg"></div>
+</div>
+
+<div class="top-header">
+      <div class="logo"><a routerLink="" (click)="changeAFM(true)"><img src="assets/images/{{logo}}"></a></div>
+      <div class="navigation">
+        <header class="header">
+          <input class="menu-btn" type="checkbox" id="menu-btn" />
+          <label class="menu-icon" for="menu-btn" id="menu-btn-icon"><span class="navicon"></span></label>
+          <ul class="menu">
+
+            <li *ngFor="let allUrl of allUrls | keyvalue">
+              <a routerLink="{{allUrl.value.page_slug}}" routerLinkActive="active" (click)="mobileHeaderClick()">{{allUrl.value.page_name}}</a>
+            </li>
+            <li class="dropdown">
+              <button class="dropbtn">{{defaultLangName}}</button>
+              <div class="dropdown-content">
+                <a href="#" (click)="switchLang('en')">{{'common.header_english' | translate }}</a>
+                <a href="#" (click)="switchLang('nl')">{{'common.header_dutch' | translate }}</a>
+              </div>
+            </li>
+          </ul>
+        </header>
+      </div>
+    </div>
+</div>

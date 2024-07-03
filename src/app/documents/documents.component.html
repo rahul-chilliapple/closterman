@@ -1,0 +1,35 @@
+    <div class="banner" [ngStyle]="{'background-image': getBackgroundImageUrl()}">
+      <div class="container">
+      <div class="breadcrum">
+        <div class="text">{{page.title}}</div>
+      </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="section internal">
+      <div class="top-section">
+        <div class="internal-content-sec-left">
+            &nbsp;
+        </div>
+        <div class="internal-content-sec-right">
+          <div class="blue">
+            <div class="border"><img src="assets/images/internal-border.png"></div>
+            <div class="content" [innerHTML]="this.SettingsConstant.headerContact"></div>
+          </div>
+        </div>
+      </div>
+      <div class="internal-content-sec-left contact-page">
+        <div class="heading">{{page.content_heading}}</div>
+        {{page.content_sub_heading}}<br/><br/>
+
+
+        <div class="documents" *ngFor="let document of documents | keyvalue">
+          <a href="https://www.cloostermanvaluefund.nl/uploads/document/pdf/{{document.value.file}}" target="_blank" download="Document.pdf">{{document.value.name}}</a>
+          <div [innerHTML]="document.value.description"></div><br/>
+      </div>
+      <div [innerHTML]="page.content_body">
+        
+      </div>
+      </div>
+  </div> 
+  </div>

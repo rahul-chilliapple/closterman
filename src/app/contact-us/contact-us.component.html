@@ -1,0 +1,261 @@
+    <div class="banner" [ngStyle]="{'background-image': getBackgroundImageUrl()}">
+      <div class="container">
+      <div class="breadcrum">
+        <div class="text">{{page.title}}</div>
+      </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="section internal">
+      <div class="top-section">
+        <div class="internal-content-sec-left">
+          &nbsp;
+        </div>
+        <div class="internal-content-sec-right">
+          <div class="blue m-0">
+            <div class="border"><img src="assets/images/internal-border.png"></div>
+            <div class="content" [innerHTML]="this.SettingsConstant.headerContact"></div>
+      
+          </div>
+        </div>
+      </div>
+      <div class="internal-content-sec-left contact-page">
+        <div class="heading">{{page.content_heading}}</div>
+        <p>{{page.content_sub_heading}}</p>
+        <div class="contactinfo"><div [innerHtml]="page.content_body">
+    </div>
+    </div>
+       <div class="contactbtn">
+      <span [ngClass]="{'active': contactFormShow == true}" (click)="toogleForm(1)">{{'contact.ask_que' | translate }}</span>
+      <span [ngClass]="{'active': paymentFormShow == true}" (click)="toogleForm(2)">{{'contact.apply_fund' | translate }}</span>
+      </div>
+      </div>      
+    </div>    
+  </div>
+  <div class="value-find voorbeelden" *ngIf="contactFormShow">
+    <div class="container">
+   
+     <div class="message-overlay" *ngIf="showSuccessMsg"> <div class="sucess-txt">Submitted successfully </div> </div>
+
+     <div class="message-overlay" *ngIf="serverError"><div class="sucess-txt" [innerHTML]="serverError"></div></div>
+
+      <div class="heading">{{'contact.ask_que' | translate }}</div>
+      <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+        <input type="hidden" formControlName="contact_lang" value="{{defaultLangCode}}" class="text-field" >
+      <div class="field-main">
+        <div class="field-left field-left-contact">
+          <div class="field">
+            <div class="text-field-caption">{{'contact.simple_name' | translate }} *</div>
+            <input type="text" formControlName="contact_name" value="" class="text-field" [ngClass]="{ 'is-invalid': submitted && f.contact_name.errors }">
+            <div *ngIf="submitted && f.contact_name.errors" class="invalid-feedback">
+                <div *ngIf="f.contact_name.errors.required">Name is required</div>
+                <div *ngIf="f.contact_name.errors.minlength && !f.contact_name.errors.whitespace">Name must have 3 character(s) in length</div>
+                <div *ngIf="f.contact_name.errors.whitespace && !f.contact_name.errors.required">Invalid Name</div>
+            </div>
+          </div>
+          <div class="fieldhalf removepad">
+            <div class="text-field-caption">{{'contact.simple_tel' | translate }} *</div>
+            <input type="text" formControlName="contact_phone" value="" class="text-field">
+            <div *ngIf="submitted && f.contact_phone.errors" class="invalid-feedback">
+                <div *ngIf="f.contact_phone.errors.required">Phone is required</div>
+                <div *ngIf="f.contact_phone.errors.minlength && !f.contact_phone.errors.whitespace">Phone must have 7 character(s) in length</div>               
+                <div *ngIf="f.contact_phone.errors.whitespace && !f.contact_phone.errors.required">Invalid Phone</div>
+            </div>
+          </div>
+
+          <div class="fieldhalf">
+            <div class="text-field-caption">{{'contact.simple_email' | translate }} *</div>
+            <input type="email" formControlName="contact_email" value="" class="text-field">
+            <div *ngIf="submitted && f.contact_email.errors" class="invalid-feedback">
+                <div *ngIf="f.contact_email.errors.required">Email is required</div>
+                <div *ngIf="f.contact_email.errors.email">Email is invalid</div>    
+            </div>
+          </div>
+          <div class="field">
+            <div class="text-field-caption">{{'contact.simple_message' | translate }} *</div>
+            <textarea formControlName="contact_message" class="text-field" rows="5"></textarea>
+            <div *ngIf="submitted && f.contact_message.errors" class="invalid-feedback">
+                <div *ngIf="f.contact_message.errors.required">Message is required</div>
+                <div *ngIf="f.contact_message.errors.minlength && !f.contact_message.errors.whitespace">Message must have 5 character(s) in length</div>            
+                <div *ngIf="f.contact_message.errors.whitespace && !f.contact_message.errors.required">Invalid Message</div>
+            </div>
+          </div>
+        </div>
+     <div class="field">
+		<button type="reset" class="btn bt-primary" (click)="onReset()">Reset</button>       
+	    <button type="submit" class="btn bt-primary">Submit</button>
+      </div>
+      </div>
+  </form>
+    </div>
+  </div>
+  
+  
+   <div class="value-find voorbeelden" *ngIf="paymentFormShow">
+    <div class="container">
+
+      <div class="message-overlay" *ngIf="showPSuccessMsg"> <div class="sucess-txt">Submitted successfully </div> </div>
+
+     <div class="message-overlay" *ngIf="serverError" > <div class="sucess-txt" [innerHTML]="serverError"></div></div>
+
+
+      <div class="heading">{{'contact.apply_fund' | translate }}</div>
+      <form [formGroup]="paymentForm" (ngSubmit)="onPaymentSubmit()">
+        <input type="hidden" formControlName="contact_lang" value="{{defaultLangCode}}" class="text-field" >
+        <div class="field-main">
+          <div class="field-left">
+            <div class="field">
+              <div class="text-field-caption">{{'contact.first_name' | translate }} *</div>
+              <input type="text" formControlName="payment_first_name" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_first_name.errors }" tabindex="1">
+              <div *ngIf="paymentSubmitted && fPay.payment_first_name.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_first_name.errors.required">First name is required</div>
+                <div *ngIf="fPay.payment_first_name.errors.minlength && !fPay.payment_first_name.errors.whitespace">First name must have atleast 3 character(s)</div>
+                <div *ngIf="fPay.payment_first_name.errors.whitespace && !fPay.payment_first_name.errors.required">Invalid Name</div>
+            </div>
+            </div>
+            <div class="field">
+              <div class="text-field-caption">{{'contact.street' | translate }} *</div>
+              <input type="text" formControlName="payment_street_name" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_street_name.errors }" tabindex="4">
+              <div *ngIf="paymentSubmitted && fPay.payment_street_name.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_street_name.errors.required">Street name / House number is required</div>
+                <div *ngIf="fPay.payment_street_name.errors.minlength && !fPay.payment_street_name.errors.whitespace">Street name / House number must have atleast 5 character(s)</div>
+                <div *ngIf="fPay.payment_street_name.errors.whitespace && !fPay.payment_street_name.errors.required">Invalid House Number</div>
+            </div>
+            </div>
+            <div class="field">
+              <div class="text-field-caption">{{'contact.telephone' | translate }} *</div>
+              <input type="text" formControlName="payment_phone" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_phone.errors }" tabindex="7">
+              <div *ngIf="paymentSubmitted && fPay.payment_phone.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_phone.errors.required">Telephone number is required</div>
+                <div *ngIf="fPay.payment_phone.errors.minlength && !fPay.payment_phone.errors.whitespace">Telelephone number must have atleast 7 character(s)</div>
+                <div *ngIf="fPay.payment_phone.errors.whitespace && !fPay.payment_phone.errors.required">Invalid Telephone Number</div>
+              </div>
+            </div>
+
+
+            
+
+
+
+            <div class="field">
+              <div class="text-field-caption">{{'contact.dob' | translate }} *</div>
+              <mat-form-field>
+               <input matInput [matDatepicker] = "picker" formControlName="payment_dob" value="" tabindex="9">
+               <mat-datepicker-toggle matSuffix [for] = "picker"></mat-datepicker-toggle>
+               <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+              <div *ngIf="paymentSubmitted && fPay.payment_dob.errors" class="invalid-feedback">
+              <div class="text-field-caption">{{'contact.dob' | translate }} *</div>
+                <div *ngIf="fPay.payment_dob.errors.required">DOB is required</div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="text-field-caption">{{'contact.bank_account' | translate }} *</div>
+              <input type="text" formControlName="payment_bank_account" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_bank_account.errors }" tabindex="12">
+              <div *ngIf="paymentSubmitted && fPay.payment_bank_account.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_bank_account.errors.required">Bank account number is required</div>
+                <div *ngIf="fPay.payment_bank_account.errors.minlength && !fPay.payment_bank_account.errors.whitespace">Bank account number must have atleast 7 character(s)</div>
+                <div *ngIf="fPay.payment_bank_account.errors.whitespace && !fPay.payment_bank_account.errors.required">Invalid Bank Account Number</div>
+              </div>
+            </div>
+          </div>
+          <div class="field-right">
+            <div class="field2">
+              <div class="text-field-caption">{{'contact.last_name' | translate }} *</div>
+              <input type="text" formControlName="payment_last_name" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_last_name.errors }" tabindex="2">
+              <div *ngIf="paymentSubmitted && fPay.payment_last_name.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_last_name.errors.required">Last name is required</div>
+                <div *ngIf="fPay.payment_last_name.errors.minlength && !fPay.payment_last_name.errors.whitespace">Last name must have atleast 3 character(s)</div>
+                <div *ngIf="fPay.payment_last_name.errors.whitespace && !fPay.payment_last_name.errors.required">Invalid Last Name</div>
+            </div>
+            </div>
+            <div class="field3">
+              <div class="text-field-caption">{{'contact.m_f' | translate }} *</div>
+              <select formControlName="payment_mv" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_mv.errors }" tabindex="3">
+                <option value="">{{'contact.m_f' | translate }}</option>
+                <option value="Male">{{'contact.male' | translate }}</option>
+                <option value="Female">{{'contact.female' | translate }}</option>
+              </select>
+              <div *ngIf="paymentSubmitted && fPay.payment_mv.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_mv.errors.required">M/V is required</div>
+                <div *ngIf="fPay.payment_mv.errors.minlength  && !fPay.payment_mv.errors.whitespace">M/V must have atleast 3 character(s)</div>
+                <div *ngIf="fPay.payment_mv.errors.whitespace && !fPay.payment_mv.errors.required">Invalid M/V</div>
+            </div>
+            </div>
+            <div class="field4">
+              <div class="text-field-caption">{{'contact.postcode' | translate }} *</div>
+              <input type="text" formControlName="payment_postcode" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_postcode.errors }" tabindex="5">
+              <div *ngIf="paymentSubmitted && fPay.payment_postcode.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_postcode.errors.required">Postcode is required</div>
+                <div *ngIf="fPay.payment_postcode.errors.minlength  && !fPay.payment_postcode.errors.whitespace">Postcode must have atleast 5 character(s)</div>
+                <div *ngIf="fPay.payment_postcode.errors.whitespace && !fPay.payment_postcode.errors.required">Invalid Postcode</div>
+            </div>
+            </div>
+            <div class="field5">
+              <div class="text-field-caption">{{'contact.place' | translate }} *</div>
+              <input type="text" formControlName="payment_place" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_place.errors }" tabindex="6">
+              <div *ngIf="paymentSubmitted && fPay.payment_place.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_place.errors.required">Place is required</div>
+                <div *ngIf="fPay.payment_place.errors.minlength && !fPay.payment_place.errors.whitespace">Place must have atleast 3 character(s)</div>
+                <div *ngIf="fPay.payment_place.errors.whitespace && !fPay.payment_place.errors.required">Invalid Place</div>
+              </div>
+            </div>
+            <div class="field">
+              <div class="text-field-caption">{{'contact.simple_email' | translate }} *</div>
+              <input type="email" formControlName="payment_email" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_email.errors }" tabindex="8">
+              <div *ngIf="paymentSubmitted && fPay.payment_email.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_email.errors.required">Email is required</div>
+                <div *ngIf="fPay.payment_email.errors.email">Invalid email address</div>
+            </div>
+          </div>
+            <div class="field6">
+              <div class="text-field-caption">{{'contact.birth_place' | translate }} *</div>
+              <input type="text" formControlName="payment_birthplace" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_birthplace.errors }" tabindex="10">
+              <div *ngIf="paymentSubmitted && fPay.payment_birthplace.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_birthplace.errors.required">Birth place is required</div>
+                <div *ngIf="fPay.payment_birthplace.errors.minlength && !fPay.payment_birthplace.errors.whitespace">Birth Place must have atleast 5 character(s)</div>
+                <div *ngIf="fPay.payment_birthplace.errors.whitespace && !fPay.payment_birthplace.errors.required">Invalid Birth Place</div>
+            </div>
+            </div>
+            <div class="field7">
+              <div class="text-field-caption">{{'contact.id_number' | translate }} *</div>
+              <input type="text" formControlName="payment_id_number" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_id_number.errors }" tabindex="11">
+              <div *ngIf="paymentSubmitted && fPay.payment_id_number.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_id_number.errors.required">ID number is required</div>
+                <div *ngIf="fPay.payment_id_number.errors.minlength && !fPay.payment_id_number.errors.whitespace">ID number must have atleast 5 character(s)</div>                
+                <div *ngIf="fPay.payment_id_number.errors.whitespace && !fPay.payment_id_number.errors.required">Invalid ID number</div>
+            </div>
+            </div>
+            <div class="field6">
+              <div class="text-field-caption">{{'contact.company_name' | translate }}</div>
+              <input type="text" formControlName="payment_company_name" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_company_name.errors }" tabindex="13">
+              <div *ngIf="paymentSubmitted && fPay.payment_company_name.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_company_name.errors.required">Company name is required</div>
+                <div *ngIf="fPay.payment_company_name.errors.minlength && !fPay.payment_company_name.errors.whitespace">Company name must have atleast 5 character(s)</div>
+                <div *ngIf="fPay.payment_company_name.errors.whitespace && !fPay.payment_company_name.errors.required">Invalid Cpmpany Name</div>
+            </div>
+            </div>
+            <div class="field7">
+              <div class="text-field-caption">{{'contact.kvk' | translate }}</div>
+              <input type="text" formControlName="payment_kuk" value="" class="text-field" tabindex="14">
+            </div>
+
+            <div class="field">
+              <div class="text-field-caption">{{'contact.doc' | translate }} *</div>
+              <input type="file" formControlName="payment_doc" value="" class="text-field" [ngClass]="{ 'is-invalid': paymentSubmitted && fPay.payment_doc.errors }" tabindex="15" (change)="handleFileInput($event.target.files)">
+              <div *ngIf="paymentSubmitted && fPay.payment_doc.errors" class="invalid-feedback">
+                <div *ngIf="fPay.payment_doc.errors.required">Document is required</div>
+                <div *ngIf="fPay.payment_doc.errors.whitespace && !fPay.payment_form.errors.required">Invalid Documemt</div>
+            </div>
+            </div>
+
+          </div>
+          <div class="field">
+            <button type="submit" class="btn bt-primary">Submit</button>
+            <button type="reset" class="btn bt-primary" (click)="onpayReset()">Reset</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  

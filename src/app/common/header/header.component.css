@@ -1,0 +1,4 @@
+.cookiesbar{  background:#f2ddb5; padding:30px 0px 25px 0; position:relative; top:0; width:100%; z-index:9999999; text-align:center;}
+.cookiesbar span.btn{ background:#fff; border:#0b4b75 solid 2px; display:inline-block; padding:4px 40px; cursor:pointer; font-size:17px}
+.cookiesbar span.txt{ width:100%; text-align:left; display:block; margin-bottom:10px}
+.cookiesbar span.txt a{ color:#57abb5; }

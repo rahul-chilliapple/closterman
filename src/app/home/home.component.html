@@ -1,0 +1,56 @@
+<div class="container">
+<div class="home-section1">
+  <div class="content-sec">
+    <div class="home-content" [innerHTML]="this.page.content_body">
+    </div>
+    <div class="cta">
+
+      <div class="picture"><img src="https://www.cloostermanvaluefund.nl/uploads/cms/images/{{bannerImage}}"></div>
+      <div class="text" [innerHTML]="this.SettingsConstant.headerContact">
+      </div>
+    </div>
+  </div>
+  <div class="content-image"><img src="https://www.cloostermanvaluefund.nl/uploads/cms/images/{{bodyImage}}"></div>
+</div>
+<div class="section">
+  <div class="content-sec">
+    <div class="home-extra-content" [innerHTML]="this.page.extra_content_body">
+    </div>
+    <div class="graph"><img src="https://www.cloostermanvaluefund.nl/uploads/graphs/graph-img.png"></div>
+  </div>
+  <div class="content-image"><img src="https://www.cloostermanvaluefund.nl/uploads/cms/images/{{footerImage}}"></div>
+</div>
+<div class="home-section2">
+  <div class="home-box" *ngFor="let block of blocks | keyvalue">
+    <div class="heading">
+      <div class="icon"><img src="assets/images/icon.png"></div>
+      <div class="text">{{block.value.title}}
+        <p>{{block.value.date}}</p>
+      </div>
+      <p [innerHTML]="block.value.details"></p>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<div class="value-find">
+<div class="container">
+  <div class="heading">{{'home.why_choose' | translate}} <strong>{{'common.website_name' | translate}}?</strong></div>
+  <div class="circle-outer">
+    <div class="circle">{{'home.proven_result1' | translate}}<br/>{{'home.proven_result2' | translate}}</div>
+  </div>
+  <div class="circle-outer">
+    <div class="circle tick2">{{'home.fair_product1' | translate}}<br/>{{'home.fair_product2' | translate}}</div>
+  </div>
+  <div class="circle-outer">
+    <div class="circle tick3">{{'home.low_costs1' | translate}}<br/>{{'home.low_costs2' | translate}}</div>
+  </div>
+  <div class="circle-outer">
+    <div class="circle tick4">{{'home.sharp_analyze1' | translate}}<br/>{{'home.sharp_analyze2' | translate}}</div>
+  </div>
+  <div class="circle-outer">
+    <div class="circle tick5">{{'home.personal_approach1' | translate}}<br/>{{'home.personal_approach2' | translate}}</div>
+  </div>
+</div>
+</div>

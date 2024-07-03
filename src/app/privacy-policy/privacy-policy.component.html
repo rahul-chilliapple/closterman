@@ -1,0 +1,26 @@
+    <div class="banner" [ngStyle]="{'background-image': getBackgroundImageUrl()}">
+      <div class="container">
+      <div class="breadcrum">
+        <div class="text privacy-title">{{page.title}}</div>
+      </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="section internal">
+      <div class="top-section">
+        <div class="internal-content-sec-left">
+          <div class="links white">
+            
+          </div>
+        </div>
+        <div class="internal-content-sec-right">
+          <div class="blue">
+            <div class="border"><img src="assets/images/internal-border.png"></div>
+            <div class="content" [innerHTML]="this.SettingsConstant.headerContact"></div>
+          </div>
+        </div>
+      </div>
+      <div class="internal-content-sec-left" [innerHTML]="page.content_body"></div>
+	</div> 
+  </div>
+

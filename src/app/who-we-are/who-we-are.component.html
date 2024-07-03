@@ -1,0 +1,36 @@
+    <div class="banner" [ngStyle]="{'background-image': getBackgroundImageUrl()}">
+      <div class="container">
+      <div class="breadcrum">
+        <div class="text">{{page.title}}</div>
+      </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="section internal offer-sec">
+      <div class="top-section">
+        <div class="internal-content-sec-left">
+          <div class="wie-ben-ik-top-yellow">{{page.content_heading}}
+            <p>{{page.content_sub_heading}}</p>
+          </div>
+        </div>
+        <div class="internal-content-sec-right">
+          <div class="blue m-0">
+            <div class="border"><img src="assets/images/internal-border.png"></div>
+            <div class="content" [innerHTML]="this.SettingsConstant.headerContact"></div>
+          </div>
+        </div>
+      </div>
+      <div class="internal-content-sec-left contact-page" [innerHTML]="page.content_body">
+      </div>
+      <div class="internal-content-sec-right">
+        <div class="content-image"><!--<img src="https://www.cloostermanvaluefund.nl/uploads/cms/images/{{page.body_image}}">--></div>
+      </div>
+    </div>
+    <div class="section">
+      <div class="bio">
+        <div class="picture"><img src="https://www.cloostermanvaluefund.nl/uploads/cms/images/{{footerImage}}"></div>
+        <div class="content" [innerHTML]="page.extra_content_body">
+        </div>
+      </div>
+    </div>
+  </div>

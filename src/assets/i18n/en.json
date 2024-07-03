@@ -1,0 +1,65 @@
+{
+    "common": 
+    {
+        "website_name" : "Cloosterman Value Fund",
+    	"header_policy_message" : "This website uses cookies. Cookies improve the usability and helps to improve this website. With using this website you adopt the",
+        "header_policy_name" : "cookies policy.",
+        "header_policy_accept" : "accept cookies",
+        "header_pay_attention" : "Pay attention! You invest outside of AFM supervision. No license and prospectus requirement for this activity.",
+        "header_english" : "English",
+        "header_dutch" : "Dutch",
+        "footer_privacy" : "Privacy Policy",
+        "footer_disclaimer" : "Disclaimer",
+        "footer_cookie" : "Cookie Policy",
+        "logo" : "logo-en.png"
+    },
+    "home": 
+    {
+        "why_choose" : "Why you chose",
+        "proven_result1" : "Proven",
+        "proven_result2" : "result",
+        "fair_product1" : "Fair",
+        "fair_product2" : "product",
+        "low_costs1" : "Low",
+        "low_costs2" : "Cost",
+        "sharp_analyze1" : "Sharp",
+        "sharp_analyze2" : "analyses",
+        "personal_approach1" : "Personal",
+        "personal_approach2" : "approach"
+    },
+    "offer": 
+    {
+        "my_equity_fund" : "My equity fund",
+        "invest_carefully" : "Investing carefully",
+        "compensation" : "Compensation",
+        "thoughtful_investment" : "Examples of thoughtful investing",
+        "faq" : "Frequently Asked Questions"
+
+    },
+    "contact": 
+    {
+        "ask_que" : "Ask a Question",
+        "apply_fund" : "Apply for the fund",
+        "simple_name" : "Name",
+        "simple_tel" : "Telephone Number",
+        "simple_email" : "Email",
+        "simple_message" : "Message",
+        "first_name" : "First Name",
+        "last_name" : "Last Name",
+        "street" : "Street name and house number",
+        "postcode" : "Postcode",
+        "place" : "Place",
+        "telephone" : "Telephone Number",
+        "dob" : "Date of Birth",
+        "birth_place" : "Birth Place",
+        "m_f" : "M/F",
+        "male" : "Male",
+        "female" : "Female",
+        "id_number" : "ID Number",
+        "bank_account" : "Bank Account Number",
+        "company_name" : "Company Name",
+        "kvk" : "KvK Number",
+        "doc" : "ID Document"
+
+    }
+}

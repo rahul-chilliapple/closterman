@@ -1,0 +1,65 @@
+{
+    "common": 
+    {
+        "website_name" : "Cloosterman Value Fund",
+        "header_policy_message" : "Deze website gebruikt cookies. Cookies verbeteren de gebruikerservaring en helpen deze website beter te maken. Door de site te blijven gebruiken, gaat u akkoord met ons",
+        "header_policy_name" : "cookiebeleid.",
+        "header_policy_accept" : "accepteer cookies",
+        "header_pay_attention" : "Let op! U belegt buiten AFM-toezicht. Geen vergunning-en prospectusplicht voor deze activiteit.",
+        "header_english" : "Engels",
+        "header_dutch" : "Dutch",
+        "footer_privacy" : "Privacy Statement",
+        "footer_disclaimer" : "Disclaimer",
+        "footer_cookie" : "Cookiebeleid",
+        "logo" : "logo.png"
+    },
+    "home": 
+    {
+        "why_choose" : "Waarom kies je voor",
+        "proven_result1" : "bewezen",
+        "proven_result2" : "resultaat",
+        "fair_product1" : "eerlijk",
+        "fair_product2" : "product",
+        "low_costs1" : "lage",
+        "low_costs2" : "kosten",
+        "sharp_analyze1" : "grondige",
+        "sharp_analyze2" : "analyses",
+        "personal_approach1" : "persoonlijke",
+        "personal_approach2" : "aanpak"
+    },
+    "offer": 
+    {
+        "my_equity_fund" : "Mijn aandelenfonds",
+        "invest_carefully" : "Doordacht beleggen",
+        "compensation" : "Vergoeding",
+        "thoughtful_investment" : "Voorbeelden doordacht beleggen",
+        "faq" : "Veelgestelde vragen"
+
+    },
+    "contact": 
+    {
+        "ask_que" : "Stel een vraag",
+        "apply_fund" : "Meld je aan voor het fonds",
+        "simple_name" : "Naam",
+        "simple_tel" : "Telefoonummer",
+        "simple_email" : "E-mailadres",
+        "simple_message" : "Vraag",
+        "first_name" : "Voornaam",
+        "last_name" : "Achternaam",
+        "street" : "Straatnaam en huisnummer",
+        "postcode" : "Postcode",
+        "place" : "Plaats",
+        "telephone" : "Telefoonummer",
+        "dob" : "Geboortedatum",
+        "birth_place" : "Geboorteplaats",
+        "m_f" : "M/V",
+        "male" : "Man",
+        "female" : "Vrouw",
+        "id_number" : "ID nummer",
+        "bank_account" : "Bankrekeningnummer",
+        "company_name" : "Bedrijfsnaam",
+        "kvk" : "KvK nummer",
+        "doc" : "ID Document"
+
+    }
+}

@@ -1,0 +1,39 @@
+<div class="banner" [ngStyle]="{'background-image': getBackgroundImageUrl()}">
+    <div class="container">
+      <div class="breadcrum">
+        <div class="text">{{page.title}}</div>
+      </div>
+    </div>
+    </div>
+    <div class="container">
+    <div class="section internal">
+      <div class="top-section">
+        <div class="internal-content-sec-left">
+            &nbsp;
+        </div>
+        <div class="internal-content-sec-right">
+          <div class="blue">
+            <div class="border"><img src="assets/images/internal-border.png"></div>
+            <div class="content" [innerHTML]="this.SettingsConstant.headerContact"></div>
+          </div>
+        </div>
+      </div>
+      <div class="internal-content-sec-left contact-page" [innerHTML]="page.content_body">
+      </div>
+    </div>
+  </div>
+
+  <div class="value-find voorbeelden testimonials-sec">
+    <div class="container">
+      <div class="heading">{{this.SettingsConstant.testimonialContact}}</div>
+    <div class="box" *ngFor="let testimonial of testimonials">
+      <div class="text" [innerHTML]="testimonial.client_message"></div>
+    <div class="testimonial-info">
+        <div class="graph"><img src="https://www.cloostermanvaluefund.nl/uploads/testimonial/images/{{testimonial.client_image}}"></div>
+      <div class="testimonial-name">{{testimonial.client_name}}</div>
+      <div class="testimonial-linkedin"><a href="{{testimonial.linkedin_url}}" target="_blank">Linked In</a></div>
+    </div>
+    </div>
+  
+  </div>
+    </div>

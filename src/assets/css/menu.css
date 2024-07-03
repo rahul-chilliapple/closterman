@@ -1,0 +1,222 @@
+.header {
+  /*position: fixed;*/
+  z-index: 3;
+}
+.header ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+}
+.header li {
+  display: block;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: #0b4b75;
+  font-size: 20px;
+}
+.header li a {
+  display: block;
+  padding: 0px 0px;
+  text-decoration: none;
+  color: #0b4b75;
+  font-weight:600;
+  font-size: 20px;
+}
+
+.header li a:hover, .header .menu-btn:hover {
+  text-decoration: none!important;
+  color: #57abb5;
+  border-bottom: 4px solid #0b4b75;
+}
+.active {
+  text-decoration: none!important;
+  color: #57abb5 !important;
+  border-bottom: 4px solid #0b4b75;
+}
+/* Added By RT */
+.is-active {  
+  border-bottom: none;
+}
+/* End of added by RT*/
+/* menu */
+.header .menu {
+  clear: both;
+  max-height: 0;
+  transition: max-height .2s ease-out;
+}
+/* menu icon */
+.header .menu-icon {
+  cursor: pointer;
+  display: inline-block;
+  float: right;
+  padding: 28px 20px;
+  position: relative;
+  user-select: none;
+}
+.header .menu-icon .navicon {
+  background: #0b4b75;
+  display: block;
+  height: 3px;
+  position: relative;
+  transition: background .2s ease-out;
+  width: 26px;
+}
+.header .menu-icon .navicon:before, .header .menu-icon .navicon:after {
+  background: #0b4b75;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+.header .menu-icon .navicon:before {
+  top: 7px;
+}
+.header .menu-icon .navicon:after {
+  top: -7px;
+}
+/* menu btn */
+.header .menu-btn {
+  display: none;
+}
+.header .menu-btn:checked ~ .menu {
+  max-height: 240px;
+}
+.header .menu-btn:checked ~ .menu-icon .navicon {
+  background: transparent;
+}
+.header .menu-btn:checked ~ .menu-icon .navicon:before {
+  transform: rotate(-45deg);
+}
+.header .menu-btn:checked ~ .menu-icon .navicon:after {
+  transform: rotate(45deg);
+}
+.header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:before, .header .menu-btn:checked ~ .menu-icon:not(.steps) .navicon:after {
+  top: 0;
+}
+
+
+.dropbtn {
+  color: #d7a343;
+  background: none;
+  padding:0px;
+  border:none;
+  font-size: 20px; font-weight:600;
+  font-weight:normal;
+  cursor: pointer;
+  background:none;
+  
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+
+  min-width: 160px;
+
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.header li .dropdown-content a {
+  color: black;
+  padding: 5px 0px;
+  text-decoration: none;
+  font-size:16px;
+  border-bottom:none !important;
+  display: block;
+}
+
+
+
+.dropbtn:hover{ background:none;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {
+  background-color: none;
+}
+
+/* 48em = 768px */
+@media (min-width: 48em) {
+  .header li {
+    float: left;
+  }
+  .header .menu {
+    clear: none;
+    float: right;
+    max-height: none;
+  }
+  .header .menu-icon {
+    display: none;
+  }
+}
+
+
+
+@media (max-width: 1200px) {
+  .header li {
+    padding: 0px 12px;
+  }
+}
+@media (max-width: 990px) {
+  .header li {
+    padding: 0px 9px;
+  }
+}
+@media (max-width: 767px) {
+  .header .menu {
+    background: #0b4b75;
+    width: 100%;
+    left: 0px;
+    top: 128px;
+    z-index: 101;
+    position: absolute;
+    opacity: 0;
+  }
+  .header .menu-btn:checked ~ .menu {
+    opacity: 1;
+    max-height: 100%;
+  }
+  .header .menu li a:hover {
+    border-width: 1px;
+  }
+  .header li {
+    padding: 0px 0px;
+  }
+  .header li a {
+    color: #fff!important;
+    padding: 10px 30px!important;
+    border-bottom: 1px solid #135784
+  }
+  .header li a:hover {
+    background: #0a456b;
+    text-decoration: none !important;
+    color: #fff;
+  }
+  
+  .header li.dropdown button{ color: #fff!important;
+    padding: 10px 30px!important;
+    border-bottom: 1px solid #135784; display:none;}
+	
+	.dropdown-content{ display:block;  position:relative}
+	.header li .dropdown-content a{ border-bottom: 1px solid #135784 !important;}
+}
+@media (max-width: 400px) {
+  .header .menu-icon {
+    padding: 28px 0px;
+  }
+}
